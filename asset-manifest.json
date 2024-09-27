@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/shinybrain/static/css/main.602c2ea5.css",
-    "main.js": "/shinybrain/static/js/main.dcb0c88b.js",
+    "main.js": "/shinybrain/static/js/main.62282286.js",
     "static/js/453.6fbd5d98.chunk.js": "/shinybrain/static/js/453.6fbd5d98.chunk.js",
     "index.html": "/shinybrain/index.html",
     "main.602c2ea5.css.map": "/shinybrain/static/css/main.602c2ea5.css.map",
-    "main.dcb0c88b.js.map": "/shinybrain/static/js/main.dcb0c88b.js.map",
+    "main.62282286.js.map": "/shinybrain/static/js/main.62282286.js.map",
     "453.6fbd5d98.chunk.js.map": "/shinybrain/static/js/453.6fbd5d98.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.602c2ea5.css",
-    "static/js/main.dcb0c88b.js"
+    "static/js/main.62282286.js"
   ]
 }
