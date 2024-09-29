@@ -7,6 +7,8 @@ import Rank from './components/Rank/Rank';
 import ParticlesBg from 'particles-bg'
 import APIKey from './components/APIKey/APIKey';
 import Response from './components/Response/Response';
+import Signin from './components/Signin/Signin';
+import Register from './components/Register/Register';
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 
@@ -14,6 +16,8 @@ function App() {
   const [inputfield, setInputfield] = useState(""); // State for the prompt
   const [apiKey, setApiKey] = useState(""); // State for the API key
   const [response, setResponse] = useState(""); // State to store the API response
+  const [route, setRoute] = useState("signin"); // Define state for route
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const onInputChange = (event) => {
     setInputfield(event.target.value);
@@ -45,16 +49,34 @@ function App() {
     }
   };
 
+  const onRouteChange = (route) => {
+    if (route === 'signout') {
+      setIsSignedIn(false);
+    } else if (route === 'home') {
+      setIsSignedIn(true);
+    }
+    setRoute(route);
+  }
+
   return (
     <div className="App">
       <ParticlesBg color="#F0FFFF" type="cobweb" bg={true} />
-      {/* <Navigation /> */}
-      <Logo />
-      <APIKey onApiKeyChange={onApiKeyChange} apiKey={apiKey} />
-      {/* <Rank /> */}
-      <ImageLinkForm onInputChange={onInputChange} onButtonSubmit={onButtonSubmit} />
-      <Response response={response} />
-      {/* <FaceRecognition /> */}
+      <Navigation onRouteChange={onRouteChange} isSignedIn={isSignedIn} />
+      {route === 'home' ? (
+        <div>
+          <Logo />
+          <APIKey onApiKeyChange={onApiKeyChange} apiKey={apiKey} />
+          {/* <Rank /> */}
+          <ImageLinkForm onInputChange={onInputChange} onButtonSubmit={onButtonSubmit} />
+          <Response response={response} />
+        </div>
+      ) : (
+        route === 'signin' ? (
+          <Signin onRouteChange={onRouteChange} />
+        )
+          : <Register onRouteChange={onRouteChange} />
+      )
+      }
     </div>
   );
 }
